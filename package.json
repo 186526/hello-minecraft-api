@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "env NODE_ENV=production node ./index.js",
+    "dev": "node ./index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "badge-maker": "^3.3.0",
+    "minecraft-protocol": "^1.25.0",
+    "sw2express": "0.0.10-1"
+  }
+}
