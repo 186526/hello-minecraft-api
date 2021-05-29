@@ -1,0 +1,18 @@
+{
+    "name": "hello-minecraft-api",
+    "github": {
+        "silent": true
+    },
+    "builds": [
+        {
+            "src": "build/index.cjs",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "build/index.cjs"
+        }
+    ]
+}
