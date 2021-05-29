@@ -5,7 +5,8 @@ export default (app) => {
   app.use(
     (req, rep) =>
       new Promise((resolve, reject) => {
-        const id = utils.randomString(8);
+        const id = utils.uuid();
+        const startTime = new Date().getTime();
 
         const host = req.path.replace("/api/ping/", "").split(":");
 
@@ -18,7 +19,7 @@ export default (app) => {
         }
 
         console.log(
-          `\nRequest ID: ${id} Ping on ${host[0]}:${
+          `\nRequest ID: ${id} Running.\nPing on ${host[0]}:${
             typeof host[1] === "string" ? host[1] : 25565
           }...`
         );
@@ -27,6 +28,10 @@ export default (app) => {
           .then((result) => {
             console.log(
               `\nRequest ID: ${id} Finish.\n${JSON.stringify(result)}\n`
+            );
+            rep.setHeader(
+              "X-Runtime",
+              `${new Date().getTime() - startTime} ms`
             );
             rep.json({
               sucess: true,
@@ -37,6 +42,10 @@ export default (app) => {
           .catch((error) => {
             console.log(
               `\nRequest ID: ${id} Error.\n${JSON.stringify(error)}\n`
+            );
+            rep.setHeader(
+              "X-Runtime",
+              `${new Date().getTime() - startTime} ms`
             );
             rep.statusCode = 400;
             rep.json({ sucess: false, msg: error });

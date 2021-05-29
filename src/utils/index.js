@@ -1,4 +1,5 @@
-import {resolve4 as resolver} from "dns";
+import { resolve4 as resolver } from "dns";
+import { v4 as uuid } from "uuid";
 export const randomString = (r = 32) => {
   let s = "0123456789",
     n = s.length,
@@ -6,9 +7,11 @@ export const randomString = (r = 32) => {
   for (let o = 0; o < r; o++) t += s.charAt(Math.floor(Math.random() * n));
   return t;
 };
-export const resolve4 = (host) => new Promise((resolve, reject) => {
-  resolver(host,(error, result) => {
-    if(error) reject(error);
-    else resolve(result);
-  })
-});
+export const resolve4 = (host) =>
+  new Promise((resolve, reject) => {
+    resolver(host, (error, result) => {
+      if (error) reject(error);
+      else resolve(result);
+    });
+  });
+export { uuid };

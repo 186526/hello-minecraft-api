@@ -1415,6 +1415,11 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.npmjs.org/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
+prettier@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-2.3.0.tgz#b6a5bf1284026ae640f17f7ff5658a7567fc0d18"
+  integrity sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==
+
 prismarine-nbt@^1.3.0:
   version "1.5.0"
   resolved "https://registry.npmjs.org/prismarine-nbt/-/prismarine-nbt-1.5.0.tgz#b06b43f940fb7bf74f6d084f6a48e4b8d0046175"
@@ -1649,10 +1654,10 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-sw2express@0.0.10-1:
-  version "0.0.10-1"
-  resolved "https://registry.npmjs.org/sw2express/-/sw2express-0.0.10-1.tgz#f628067108d6361bd417d1d43def3af2d467e85c"
-  integrity sha512-PQrWJLn4bjPRw+ueYP0sMb4Rxb7ngcZVn4/gqXoJhsKRIH9nDc5w969tebYHcEpe17/lr+109s4AM9IFTrc7DA==
+sw2express@0.0.10-2:
+  version "0.0.10-2"
+  resolved "https://registry.npmjs.org/sw2express/-/sw2express-0.0.10-2.tgz#df30ca0bbc7cd10e01c6e4abaa097cab0e6fb7b4"
+  integrity sha512-+uqOefxjrDMFvfsutJLDFCExBIfIoocuIOWAkNKqbk2iL6CZD9H71A5zHWl6gtZM4zRmfKzfvA9NhYvU7n1Yrg==
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
@@ -1743,7 +1748,7 @@ uuid-1345@^1.0.1:
   dependencies:
     macaddress "^0.5.1"
 
-uuid@^8.2.0, uuid@^8.3.0:
+uuid@^8.2.0, uuid@^8.3.0, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
