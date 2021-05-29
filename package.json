@@ -1,12 +1,21 @@
 {
   "scripts": {
     "start": "env NODE_ENV=production node ./index.js",
-    "dev": "node ./index.js"
+    "dev": "node ./index.js",
+    "babel": "babel index.cjs -o ./build/index.cjs;babel ./src/ -d build/src",
+    "vercel-build":"yarn clean;yarn babel;node build.cjs;cd build; yarn",
+    "clean":"rm -rf ./build"
   },
   "type": "module",
   "dependencies": {
     "badge-maker": "^3.3.0",
+    "maxmind": "0.6",
     "minecraft-protocol": "^1.25.0",
     "sw2express": "0.0.10-1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.0"
   }
 }
