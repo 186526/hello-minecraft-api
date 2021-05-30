@@ -19,6 +19,8 @@ app.use(middleware);
 
 app.register(ping, "/api/ping/");
 app.register(pingSVG, "/api/ping-svg/");
+app.register(pingSVG, "/api/svg/");
+
 
 app.route("/api/").all(async (req, rep) => "200 OK");
 

@@ -39,7 +39,7 @@ export default (app) => {
           resolve();
         };
 
-        const host = req.path.replace("/api/ping-svg/", "").split(":");
+        const host = req.path.replace("/api/ping-svg/", "").replace("/api/svg/","").split(":");
 
         if (host.length > 2) {
           rep.json({
