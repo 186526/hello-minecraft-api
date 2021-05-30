@@ -12,6 +12,6 @@ export default async (req, rep) => {
     },
     rep.headers
   );
-  rep.headers["X-Served-By"] = `Hello,Minecraft API`;
+  delete rep.headers["X-Served-By"];
   rep.headers["Server"] = `Hello,Minecraft API`;
 };

@@ -6,7 +6,7 @@ import middleware from "./src/middlewares/index.js";
 
 const app = new sw2express({
   logger: true,
-  cluster: 4,
+  cluster: process.env.CLUSTER || 4,
   ETag: true,
 });
 
@@ -28,5 +28,5 @@ if (typeof module !== "undefined") {
     await func(req, rep);
   };
 } else {
-  app.listen(8080);
+  app.listen(process.env.PORT || 8080);
 }
