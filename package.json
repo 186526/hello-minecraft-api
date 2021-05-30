@@ -2,6 +2,7 @@
   "name":"hello-minecraft-api",
   "description": "A simple and efficient Minecraft Java Edition API, written in Node.js",
   "url":"https://github.com/186526/hello-minecraft-api",
+  "version":"0.0.1",
   "private": true,
   "scripts": {
     "start": "env NODE_ENV=production node ./index.js",
