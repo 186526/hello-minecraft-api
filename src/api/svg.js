@@ -124,10 +124,10 @@ export const generateSVG = (
   let badgeText = `${result.latency} ms | ${result.players.online}/${result.players.max} | ${result.version.name} Protocol@${result.version.protocol}`;
   let badgeColor = "successful";
   if (result.latency > 250) {
-    badgeColor = "important";
-  } else if (result.latency > 350) {
+    badgeColor = "green";
+  } else if (result.latency > 220) {
     badgeColor = "yellow";
-  } else if (result.latency > 450) {
+  } else if (result.latency > 300) {
     badgeColor = "orange";
   }
   if (result.players.online == result.players.max) {
