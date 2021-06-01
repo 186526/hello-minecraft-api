@@ -100,7 +100,7 @@ export const generateSVG = (
     try {
       if (globalThis.maxmindCheckIP) {
         let v4 = isIPv4(host) ? host : (await utils.resolve4(host))[0];
-        answer.message += `| in ${maxmind.getCountry(v4).name}`;
+        answer.message += ` | in ${maxmind.getCountry(v4).name}`;
       }
     } catch (err) {
       console.log(err);
@@ -123,11 +123,11 @@ export const generateSVG = (
 
   let badgeText = `${result.latency} ms | ${result.players.online}/${result.players.max} | ${result.version.name} Protocol@${result.version.protocol}`;
   let badgeColor = "successful";
-  if (result.latency > 100) {
+  if (result.latency > 250) {
     badgeColor = "important";
-  } else if (result.latency > 200) {
+  } else if (result.latency > 350) {
     badgeColor = "yellow";
-  } else if (result.latency > 300) {
+  } else if (result.latency > 450) {
     badgeColor = "orange";
   }
   if (result.players.online == result.players.max) {
