@@ -1,12 +1,13 @@
 {
-  "name":"hello-minecraft-api",
+  "name": "hello-minecraft-api",
   "description": "A simple and efficient Minecraft Java Edition API, written in Node.js",
-  "url":"https://github.com/186526/hello-minecraft-api",
-  "version":"0.0.1",
+  "url": "https://github.com/186526/hello-minecraft-api",
+  "version": "0.0.1",
   "private": true,
+  "main": "main.js",
   "scripts": {
-    "start": "env NODE_ENV=production node ./index.js",
-    "dev": "node ./index.js",
+    "start": "env NODE_ENV=production node ./app.js",
+    "dev": "node ./app.js",
     "babel": "babel index.js -o ./build/index.cjs;babel ./src/ -d build/src",
     "vercel-build": "yarn clean;yarn babel;node build.cjs;cd build; yarn",
     "clean": "rm -rf ./build",
@@ -36,8 +37,8 @@
     "sw2express"
   ],
   "author": {
-    "name":"real186",
-    "email":"i@186526.xyz",
+    "name": "real186",
+    "email": "i@186526.xyz",
     "url": "https://186526.xyz"
   }
 }

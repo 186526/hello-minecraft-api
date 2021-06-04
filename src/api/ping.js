@@ -1,14 +1,14 @@
 import minecraftAPI from "minecraft-protocol";
 import * as utils from "../utils/index.js";
 
-export default (app) => {
+export default (config) => (app) => {
   app.use(
-    (req, rep) =>
+    (req, rep, registerPrefix) =>
       new Promise((resolve, reject) => {
         const id = utils.uuid();
         const startTime = new Date().getTime();
 
-        const host = req.path.replace("/api/ping/", "").split(":");
+        const host = req.path.replace(registerPrefix, "").split(":");
 
         if (host.length > 2) {
           rep.json({
@@ -18,7 +18,7 @@ export default (app) => {
           resolve(null);
         }
 
-        console.log(
+        console.logHelloMinecraftAPI(
           `\nRequest ID: ${id} Running.\nPing on ${host[0]}:${
             typeof host[1] === "string" ? host[1] : 25565
           }...`
@@ -26,7 +26,7 @@ export default (app) => {
 
         ping(host[0], host[1])
           .then((result) => {
-            console.log(
+            console.logHelloMinecraftAPI(
               `\nRequest ID: ${id} Finish.\n${JSON.stringify(result)}\n`
             );
             rep.setHeader(
@@ -40,7 +40,7 @@ export default (app) => {
             resolve();
           })
           .catch((error) => {
-            console.log(
+            console.logHelloMinecraftAPI(
               `\nRequest ID: ${id} Error.\n${JSON.stringify(error)}\n`
             );
             rep.setHeader(
