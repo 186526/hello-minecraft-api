@@ -8,26 +8,28 @@ const getReallyPrefix = (relativePrefix, globalPrefix) => {
 export default {
   name: "register",
 
-  func: (that) => (func, globalPrefix = "/") => {
-    const app = {
-      route: (prefix) => {
-        const reallyRoute = that.route(getReallyPrefix(prefix, globalPrefix));
-        return reallyRoute;
-      },
-      use: (Handler) => {
-        that._registerMiddlewares.push({
-          prefix: globalPrefix,
-          Handler: Handler,
-        });
-      },
-    };
-    func(app);
-    return that;
-  },
+  func:
+    (that) =>
+    (func, globalPrefix = "/") => {
+      const app = {
+        route: (prefix) => {
+          const reallyRoute = that.route(getReallyPrefix(prefix, globalPrefix));
+          return reallyRoute;
+        },
+        use: (Handler) => {
+          that._registerMiddlewares.push({
+            prefix: globalPrefix,
+            Handler: Handler,
+          });
+        },
+      };
+      func(app);
+      return that;
+    },
 
   bootstrap: (app) => {
     app._register = true;
-    app._registerMiddlewares = [];
+    app._registerMiddlewares = app._registerMiddlewares || [];
     app.use(async (req, rep) => {
       for (let i of app._registerMiddlewares) {
         if (req.path.indexOf(i.prefix) === 0) {

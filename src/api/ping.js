@@ -1,11 +1,10 @@
 import minecraftAPI from "minecraft-protocol";
-import * as utils from "../utils/index.js";
 
 export default (config) => (app) => {
   app.use(
     (req, rep, registerPrefix) =>
       new Promise((resolve, reject) => {
-        const id = utils.uuid();
+        const id = rep.responseID;
         const startTime = new Date().getTime();
 
         const host = req.path.replace(registerPrefix, "").split(":");

@@ -120,3 +120,5 @@ dist
 
 .vercel
 tmp
+fly.toml
+config

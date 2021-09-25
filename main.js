@@ -38,6 +38,12 @@ export default ({
         app.extend(sw2expressRegister);
         app.use(middleware);
 
+        app.register((app)=>{
+          app.use(async(req,rep)=>{
+            rep.setHeader('X-Request-ID',rep.responseID);
+          })
+        },"/api/");
+
         app.register(ping(config), "/api/ping/");
         app.register(pingSVG(config), "/api/ping-svg/");
         app.register(pingSVG(config), "/api/svg/");

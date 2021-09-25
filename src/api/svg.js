@@ -1,6 +1,6 @@
 import { ping } from "./ping.js";
 import * as utils from "../utils/index.js";
-import { makeBadge, ValidationError } from "badge-maker";
+import { makeBadge } from "badge-maker";
 import maxmind from "maxmind";
 import { isIPv4 } from "net";
 
@@ -22,7 +22,7 @@ export default (config) => (app) => {
   app.use(
     (req, rep, registerPrefix) =>
       new Promise((resolve, reject) => {
-        const id = utils.uuid();
+        const id = rep.responseID;
         const startTime = new Date().getTime();
         const sendBadge = async (options) => {
           rep.setHeader("Content-Type", "image/svg+xml;charset=utf-8");
